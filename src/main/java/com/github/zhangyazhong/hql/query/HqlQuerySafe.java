@@ -128,6 +128,7 @@ public class HqlQuerySafe implements HqlQueryStatement {
     
     @Override
     public String createStatement() throws Exception {
+        CONSTRUCTED = true;
         StringBuilder hql = new StringBuilder();
         hql.append(!selectList.isEmpty() ? String.format("select %s ", StringUtils.join(selectList, ", ")) : "");
         if (fromMap.size() > 1) {
@@ -147,7 +148,6 @@ public class HqlQuerySafe implements HqlQueryStatement {
         }
         hql.append(!groupByList.isEmpty() ? String.format("group by %s ", StringUtils.join(groupByList, ", ")) : "");
         hql.append(!orderByList.isEmpty() ? String.format("order by %s ", StringUtils.join(orderByList, ", ")) : "");
-        CONSTRUCTED = true;
         return hql.toString();
     }
     

@@ -31,8 +31,7 @@ public interface HqlQueryStatement extends HqlStatement {
         LESS_OR_EQUAL("<="),
         EQUAL("="),
         NOT_EQUAL("<>"),
-        LIKE("like"),
-        LIKE_UPPERCASES("LIKE");
+        LIKE("like");
         
         private String operator;
         
